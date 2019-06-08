@@ -14,13 +14,21 @@
                     <input type="submit" class="ghost-button" value="Get Weather">
                 </form>
 
-                <% if (weather !== null) { %>
+                <% if (weather) { %>
                     <p><%= weather %></p>
                 <% } %>
 
-                <% if (error !== null) { %>
+                <% if (error) { %>
                     <p><%= error %></p>
                 <% } %>
+
+                <% if (typeof weatherLog !== 'undefined') { %>
+                    <p> Lastest Requests: </p>
+                    <% for (const e of weatherLog) { %>
+                        <p><%= e.msg %></p>
+                    <% } %>
+                <% } %>
+
             </fieldset>
         </div>
     </body>
